@@ -2,6 +2,14 @@ function initBackgroundVideo() {
   const video = document.querySelector('.video-bg video');
   if (!video) return;
 
+  const source = video.querySelector('source');
+  const onGitHubPages = location.hostname.includes('github.io');
+
+  if (onGitHubPages && source) {
+    source.src = 'https://media.githubusercontent.com/media/beherasahadev-codes/expense-tracker/main/assets/background.mp4';
+    video.load();
+  }
+
   video.muted = true;
   video.defaultMuted = true;
   video.playsInline = true;
