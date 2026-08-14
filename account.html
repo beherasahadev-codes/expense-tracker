@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f5f7" />
+    <title>Account — Vela</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="video-bg" aria-hidden="true">
+      <video autoplay muted loop playsinline>
+        <source src="assets/background.mp4" type="video/mp4" />
+      </video>
+      <div class="video-bg-overlay"></div>
+    </div>
+    <div class="aurora aurora-one"></div>
+    <div class="aurora aurora-two"></div>
+    <div class="grain"></div>
+    <div class="app-shell">
+      <aside class="sidebar glass">
+        <a class="brand" href="index.html"><span class="brand-mark"><i data-lucide="sparkles"></i></span><span>vela</span></a>
+        <nav class="nav">
+          <a class="nav-link" href="index.html#dashboard"><i data-lucide="layout-dashboard"></i>Overview</a>
+          <a class="nav-link" href="index.html#transactions"><i data-lucide="receipt-text"></i>Transactions</a>
+          <a class="nav-link" href="index.html#budgets"><i data-lucide="pie-chart"></i>Budgets</a>
+          <a class="nav-link" href="index.html#insights"><i data-lucide="chart-no-axes-combined"></i>Insights</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <button class="nav-link muted" id="themeToggle" aria-label="Toggle theme"><i data-lucide="moon"></i> Appearance</button>
+          <a class="profile active" href="account.html" aria-current="page"><span class="avatar">SA</span><span><strong>Sahadev</strong><small>Personal account</small></span><i data-lucide="chevrons-up-down"></i></a>
+        </div>
+      </aside>
+
+      <main class="account-main">
+        <header class="topbar account-topbar">
+          <button class="menu-button" aria-label="Open menu"><i data-lucide="menu"></i></button>
+          <div class="greeting">
+            <p>Settings</p>
+            <h1>Account</h1>
+          </div>
+        </header>
+
+        <section class="account-hero glass">
+          <div class="account-hero-user">
+            <span class="avatar avatar-lg">SA</span>
+            <div>
+              <h2>Sahadev Anand</h2>
+              <p>sahadev@email.com</p>
+              <small>Member since March 2024 · Personal account</small>
+            </div>
+          </div>
+          <button type="button" class="secondary-button" id="editAvatarBtn">Change photo</button>
+        </section>
+
+        <div class="account-grid">
+          <article class="account-panel glass">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">Profile</span>
+                <h2>Personal information</h2>
+              </div>
+            </div>
+            <form id="profileForm" class="account-form">
+              <div class="form-row">
+                <label>First name<input name="firstName" value="Sahadev" required /></label>
+                <label>Last name<input name="lastName" value="Anand" required /></label>
+              </div>
+              <label>Email address<input name="email" type="email" value="sahadev@email.com" required /></label>
+              <label>Phone number<input name="phone" type="tel" value="+91 98765 43210" /></label>
+              <label>Timezone
+                <select name="timezone">
+                  <option selected>Asia/Kolkata (GMT+5:30)</option>
+                  <option>Asia/Dubai (GMT+4)</option>
+                  <option>Europe/London (GMT+0)</option>
+                  <option>America/New_York (GMT-5)</option>
+                </select>
+              </label>
+              <button type="submit" class="submit-button account-save">Save changes</button>
+            </form>
+          </article>
+
+          <article class="account-panel glass">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">Security</span>
+                <h2>Change password</h2>
+              </div>
+            </div>
+            <form id="passwordForm" class="account-form">
+              <label>Current password<input name="currentPassword" type="password" required autocomplete="current-password" /></label>
+              <label>New password<input name="newPassword" type="password" required minlength="8" autocomplete="new-password" /></label>
+              <label>Confirm new password<input name="confirmPassword" type="password" required minlength="8" autocomplete="new-password" /></label>
+              <p class="form-hint">Use at least 8 characters with a mix of letters and numbers.</p>
+              <button type="submit" class="submit-button account-save">Update password</button>
+            </form>
+          </article>
+
+          <article class="account-panel glass account-panel-wide">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">Sessions</span>
+                <h2>Logged-in devices</h2>
+              </div>
+              <button type="button" class="text-button" id="signOutOthers">Sign out all others</button>
+            </div>
+            <div class="device-list" id="deviceList"></div>
+          </article>
+
+          <article class="account-panel glass">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">Preferences</span>
+                <h2>Other options</h2>
+              </div>
+            </div>
+            <div class="option-list">
+              <label class="option-row">
+                <span><strong>Email notifications</strong><small>Weekly spending summaries and budget alerts</small></span>
+                <input type="checkbox" name="emailNotifs" checked />
+              </label>
+              <label class="option-row">
+                <span><strong>Two-factor authentication</strong><small>Require a code when signing in on new devices</small></span>
+                <input type="checkbox" name="twoFactor" />
+              </label>
+              <label class="option-row">
+                <span><strong>Login alerts</strong><small>Get notified when a new device signs in</small></span>
+                <input type="checkbox" name="loginAlerts" checked />
+              </label>
+            </div>
+            <div class="account-actions">
+              <button type="button" class="secondary-button" id="exportData"><i data-lucide="download"></i> Export data</button>
+              <button type="button" class="danger-button" id="deleteAccount">Delete account</button>
+            </div>
+          </article>
+        </div>
+
+        <p class="account-toast" id="accountToast" role="status" aria-live="polite"></p>
+      </main>
+    </div>
+    <script src="account.js"></script>
+  </body>
+</html>
