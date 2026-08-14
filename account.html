@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="video-bg" aria-hidden="true">
-      <video autoplay muted loop playsinline>
+      <video id="bgVideo" autoplay muted loop playsinline preload="auto">
         <source src="assets/background.mp4" type="video/mp4" />
       </video>
       <div class="video-bg-overlay"></div>
@@ -142,6 +142,7 @@
         <p class="account-toast" id="accountToast" role="status" aria-live="polite"></p>
       </main>
     </div>
+    <script src="background.js"></script>
     <script src="account.js"></script>
   </body>
 </html>

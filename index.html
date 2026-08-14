@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class="video-bg" aria-hidden="true">
-      <video autoplay muted loop playsinline>
+      <video id="bgVideo" autoplay muted loop playsinline preload="auto">
         <source src="assets/background.mp4" type="video/mp4" />
       </video>
       <div class="video-bg-overlay"></div>
@@ -77,6 +77,7 @@
       </main>
     </div>
     <dialog id="transactionDialog"><form method="dialog" id="transactionForm" class="modal glass"><button type="button" class="close-modal" aria-label="Close"><i data-lucide="x"></i></button><span class="eyebrow">New entry</span><h2>Add transaction</h2><label>Description<input required name="description" placeholder="e.g. Lunch at Terra" /></label><div class="form-row"><label>Amount<input required name="amount" type="number" min="1" placeholder="0.00" /></label><label>Type<select name="type"><option value="expense">Expense</option><option value="income">Income</option></select></label></div><label>Category<select name="category"><option>Food & dining</option><option>Shopping</option><option>Travel</option><option>Entertainment</option><option>Salary</option></select></label><button class="submit-button" value="default">Add transaction <i data-lucide="arrow-right"></i></button></form></dialog>
+    <script src="background.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
